@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Interactiva: Code Formatting en Python</title>
+    <style>
+        /* === ESTILOS GLOBALES Y DE ESCRITORIO === */
+        body {
+            font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 0;
+            padding: 40px; display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; box-sizing: border-box; transition: padding 0.3s ease;
+        }
+
+        .slideshow-container { position: relative; width: 90%; max-width: 960px; }
+        
+        .slide {
+            display: none; background-color: #fff; border: 1px solid #ccc;
+            height: 540px; padding: 40px 60px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            flex-direction: column; justify-content: center; position: relative;
+            box-sizing: border-box;
+        }
+
+        .fade { animation-name: fade; animation-duration: 0.5s; }
+        @keyframes fade { from {opacity: .4} to {opacity: 1} }
+
+        .prev, .next {
+            cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%);
+            width: 50px; height: 50px; background-color: #cccccc; color: #333;
+            border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex; justify-content: center; align-items: center;
+            font-weight: bold; font-size: 24px; transition: all 0.3s ease;
+            user-select: none; z-index: 10;
+        }
+
+        .prev { left: -70px; }
+        .next { right: -70px; }
+        .prev:hover, .next:hover { background-color: #aaaaaa; }
+
+        .slide h1 { font-size: 3.5em; text-align: center; border-bottom: 4px solid #11a800; padding-bottom: 20px; color: #005A9C; }
+        .slide h2 { font-size: 2.8em; margin-top: 0; margin-bottom: 30px; text-align: center; color: #005A9C; }
+        .single-content { text-align: center; }
+        .single-content p { font-size: 1.5em; color: #444; }
+        .single-content pre { font-size: 1.2em; display: inline-block; text-align: left; max-width: 100%; }
+        pre { background-color: #2d3636; color: #fff; padding: 15px; border-radius: 5px; font-size: 1.1em; white-space: pre-wrap; }
+        .footer { position: absolute; bottom: 20px; right: 40px; font-size: 1em; color: #888; }
+
+        /* === MEDIA QUERIES === */
+        @media screen and (max-width: 768px) {
+            body { padding: 15px; }
+            .slideshow-container { width: 100%; padding-bottom: 75px; }
+            .slide { height: auto; min-height: 75vh; padding: 20px 25px; }
+            .prev, .next { top: auto; bottom: 15px; width: 45px; height: 45px; }
+            .prev { left: 50%; transform: translateX(-110%); }
+            .next { left: 50%; transform: translateX(10%); right: auto; }
+            .slide h1 { font-size: 2.2em; }
+            .slide h2 { font-size: 1.8em; }
+            .single-content p { font-size: 1.1em; }
+            .single-content pre { font-size: 1em; }
+            .footer { font-size: 0.8em; right: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-container">
+        
+        <div class="slide fade">
+            <h1>Cheat Sheet de Python</h1>
+            <h2 style="color:#333; border:none;">Code Formatting</h2>
+            <div class="footer">1 / 19</div>
+        </div>
+
+        <div class="slide fade">
+            <h2>¿Por qué es tan Importante?</h2>
+            <div class="single-content"><p>El código se lee muchas más veces de las que se escribe. Un formato consistente y limpio hace el código más <strong>legible</strong>, <strong>mantenible</strong> y <strong>fácil de depurar</strong>.</p></div>
+            <div class="footer">2 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2>El Zen de Python</h2>
+            <div class="single-content"><p>La filosofía de Python, accesible con `import this`, nos da una pista clave: "Readability counts" (La legibilidad cuenta).</p></div>
+            <div class="footer">3 / 19</div>
+        </div>
+
+        <div class="slide fade">
+            <h2>PEP 8: La Guía de Estilo Oficial</h2>
+            <div class="single-content"><p><strong>P</strong>ython <strong>E</strong>nhancement <strong>P</strong>roposal 8 es el documento que establece las convenciones de estilo para el código Python. Es la "biblia" del formateo en Python.</p></div>
+            <div class="footer">4 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2>PEP 8: Indentación</h2>
+            <div class="single-content"><p>Usa <strong>4 espacios</strong> por nivel de indentación. Nunca uses tabuladores.</p><pre><code>def mi_funcion():
+    if True:
+        print("Indentado con 4 espacios")</code></pre></div>
+            <div class="footer">5 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2>PEP 8: Longitud de Línea</h2>
+            <div class="single-content"><p>Limita todas las líneas a un máximo de 79 caracteres (o 99 en algunos proyectos modernos) para mejorar la legibilidad.</p></div>
+            <div class="footer">6 / 19</div>
+        </div>
+
+        <div class="slide fade">
+            <h2>PEP 8: Importaciones</h2>
+            <div class="single-content"><p>Las importaciones deben estar en líneas separadas y agrupadas: 1. Librería estándar, 2. Librerías de terceros, 3. Módulos locales.</p><pre><code>import os
+import sys
+
+import requests
+
+from mi_proyecto import utils</code></pre></div>
+            <div class="footer">7 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2>PEP 8: Espacios en Blanco</h2>
+            <div class="single-content"><p>Usa espacios alrededor de operadores y después de las comas para que el código "respire".</p><pre><code># Bien
+x = 1
+mi_lista = [1, 2, 3]
+
+# Mal
+x=1
+mi_lista=[1,2,3]</code></pre></div>
+            <div class="footer">8 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2>PEP 8: Nombres</h2>
+            <div class="single-content"><p><code>snake_case</code> para variables y funciones.<br><code>CamelCase</code> para clases.<br><code>MAYUSCULAS_CON_GUIONES</code> para constantes.</p><pre><code>MI_CONSTANTE = 10
+mi_variable = 20
+
+def mi_funcion(): pass
+class MiClase: pass</code></pre></div>
+            <div class="footer">9 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2>El Problema: Formateo Manual</h2>
+            <div class="single-content"><p>Recordar y aplicar todas estas reglas manualmente es tedioso, propenso a errores y una fuente de debates inútiles en equipos de desarrollo.</p></div>
+            <div class="footer">10 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2>La Solución: Autoformateadores</h2>
+            <div class="single-content"><p>Herramientas que reformatean automáticamente tu código para que cumpla con un estilo predefinido. ¡Dejas que la máquina se encargue!</p></div>
+            <div class="footer">11 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2><code>black</code>: El Formateador Intransigente</h2>
+            <div class="single-content"><p>Es el formateador más popular. Su lema es: "Cualquier código formateado por Black se ve igual". Acaba con los debates sobre estilo.</p></div>
+            <div class="footer">12 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2><code>black</code> en Acción</h2>
+            <div class="single-content"><p>Transforma el código desordenado en un formato limpio y estándar.</p><pre><code># Código antes de Black
+def mi_funcion( arg1,arg2 ):
+    return arg1*arg2
+
+# Código después de ejecutar Black
+def mi_funcion(arg1, arg2):
+    return arg1 * arg2</code></pre></div>
+            <div class="footer">13 / 19</div>
+        </div>
+
+        <div class="slide fade">
+            <h2>Cómo usar <code>black</code></h2>
+            <div class="single-content"><p>Se instala con `pip` y se ejecuta desde la terminal en la carpeta de tu proyecto.</p><pre><code>pip install black
+
+# Formatea todos los archivos .py en la carpeta actual y subcarpetas
+black .</code></pre></div>
+            <div class="footer">14 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2><code>isort</code>: El Ordenador de Imports</h2>
+            <div class="single-content"><p>Una herramienta especializada que ordena y agrupa automáticamente tus importaciones según las reglas de PEP 8.</p><pre><code>pip install isort
+
+# Ordena los imports en todos los archivos
+isort .</code></pre></div>
+            <div class="footer">15 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2>Linters vs. Formatters</h2>
+            <div class="single-content"><p><strong>Formatter (`black`):</strong> Reescribe tu código para que se vea bien.<br><br><strong>Linter (`flake8`, `ruff`):</strong> Analiza tu código y te avisa de errores de estilo, bugs potenciales y complejidad.</p></div>
+            <div class="footer">16 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2>Integración en el Flujo de Trabajo</h2>
+            <div class="single-content"><p>Los profesionales integran estas herramientas en sus editores de código (para formatear al guardar) y en sistemas de control de versiones (con `pre-commit`) para garantizar que todo el código subido al repositorio esté formateado.</p></div>
+            <div class="footer">17 / 19</div>
+        </div>
+
+        <div class="slide fade">
+            <h2>Regla de Oro</h2>
+            <div class="single-content"><p>Elige un formateador (casi siempre `black`), úsalo consistentemente en todo tu proyecto y deja de preocuparte por el estilo manual.</p></div>
+            <div class="footer">18 / 19</div>
+        </div>
+        
+        <div class="slide fade">
+            <h2>Conclusión</h2>
+            <div class="single-content"><p>El formateo automático del código no es un lujo, es una práctica estándar que ahorra tiempo, mejora la calidad del código y facilita la colaboración en equipo.</p></div>
+            <div class="footer">19 / 19</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) { slideIndex = 1 } 
+            if (n < 1) { slideIndex = slides.length }
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            slides[slideIndex - 1].style.display = "flex";
+        }
+    </script>
+
+</body>
+</html>
